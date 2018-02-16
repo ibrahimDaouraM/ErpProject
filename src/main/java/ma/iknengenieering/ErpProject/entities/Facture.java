@@ -1,12 +1,25 @@
 package ma.iknengenieering.ErpProject.entities;
 
 import java.util.Date;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
+@Entity
+@Table(name="Factures")
 public class Facture {
+	@Id
+	@GeneratedValue
+private Long idFacture;
+@NotEmpty
 private String NomSocieté;
 private String adresse;
 private Long tel;
-
+@NotEmpty
 private String reference;
+@NotEmpty
 private Date date;
 public Facture() {
 	super();
@@ -51,5 +64,10 @@ public Long getTel() {
 public void setTel(Long tel) {
 	this.tel = tel;
 }
-
+public Long getIdFacture() {
+	return idFacture;
+}
+public void setIdFacture(Long idFacture) {
+	this.idFacture = idFacture;
+}
 }

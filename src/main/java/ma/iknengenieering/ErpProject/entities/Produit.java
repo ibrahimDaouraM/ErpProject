@@ -1,7 +1,22 @@
 package ma.iknengenieering.ErpProject.entities;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
+
+
+
+@Entity
+@Table(name="produits")
 public class Produit {
-	  private String designation;
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private Long idProduit;
+	@NotEmpty
+	private String designation;
 	  private String description;
 	  private double prix;
 	  private int quantite;
@@ -26,6 +41,12 @@ public class Produit {
 	public int getQuantite() {
 		return quantite;
 	}
+	 public Long getIdProduit() {
+			return idProduit;
+		}
+		public void setIdProduit(Long idProduit) {
+			this.idProduit = idProduit;
+		}
 	public void setQuantite(int quantite) {
 		this.quantite = quantite;
 	}
