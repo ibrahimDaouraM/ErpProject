@@ -1,5 +1,7 @@
 package ma.iknengenieering.ErpProject.entities;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,7 +13,7 @@ import javax.validation.constraints.NotEmpty;
 
 @Entity
 @Table(name="produits")
-public class Produit {
+public class Produit implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long idProduit;

@@ -1,10 +1,34 @@
 package ma.iknengenieering.ErpProject.entities;
 
-public class Fournisseur {
+import java.io.Serializable;
+import java.util.Collection;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="Fournisseurs")
+public class Fournisseur implements Serializable {
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="Code_fournisseur")
 private Long idFournisseur;
 private String NomFournisseur;
 private String adresseFournis;
 private Long Tel;
+@OneToMany(mappedBy="fournisseur")
+private Collection<Facture_Reçu> factures;
+public Collection<Facture_Reçu> getFactures() {
+	return factures;
+}
+public void setFactures(Collection<Facture_Reçu> factures) {
+	this.factures = factures;
+}
 public Long getIdFournisseur() {
 	return idFournisseur;
 }

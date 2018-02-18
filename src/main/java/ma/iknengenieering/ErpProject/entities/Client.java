@@ -1,13 +1,38 @@
 package ma.iknengenieering.ErpProject.entities;
 
-public class Client {
+import java.io.Serializable;
+import java.util.Collection;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="Clients")
+public class Client implements Serializable {
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="Code_Client")
 	private Long idClient;
 	private String nomClient;
 	private String adresse;
 	private String email;
 	private Long tel;
+	@OneToMany(mappedBy="client")
+	private Collection<Facture_Emise> factures;
 	public Long getIdClient() {
 		return idClient;
+	}
+	public Collection<Facture_Emise> getFactures() {
+		return factures;
+	}
+	public void setFactures(Collection<Facture_Emise> factures) {
+		this.factures = factures;
 	}
 	public void setIdClient(Long idClient) {
 		this.idClient = idClient;

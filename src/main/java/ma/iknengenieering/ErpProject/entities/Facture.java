@@ -1,15 +1,26 @@
 package ma.iknengenieering.ErpProject.entities;
 
+import java.io.Serializable;
+import java.util.Collection;
 import java.util.Date;
 
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.DiscriminatorType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 @Entity
+@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name="Type_Facture",discriminatorType=DiscriminatorType.STRING)
 @Table(name="Factures")
-public class Facture {
+public class Facture implements Serializable {
 	@Id
 	@GeneratedValue
 private Long idFacture;
@@ -21,6 +32,26 @@ private Long tel;
 private String reference;
 @NotEmpty
 private Date date;
+@OneToMany(mappedBy="facture")
+private Collection<Produit> produit;
+
+
+@ManyToOne
+@JoinColumn(name="ID_Utilisateur")
+private Utilisateur utilisatuer;
+
+public Collection<Produit> getProduit() {
+	return produit;
+}
+public void setProduit(Collection<Produit> produit) {
+	this.produit = produit;
+}
+public Utilisateur getUtilisatuer() {
+	return utilisatuer;
+}
+public void setUtilisatuer(Utilisateur utilisatuer) {
+	this.utilisatuer = utilisatuer;
+}
 public Facture() {
 	super();
 	// TODO Auto-generated constructor stub
