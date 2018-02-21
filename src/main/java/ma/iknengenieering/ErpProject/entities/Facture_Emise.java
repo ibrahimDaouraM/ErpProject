@@ -1,19 +1,20 @@
 package ma.iknengenieering.ErpProject.entities;
 
+
+
 import java.util.Date;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 
 @Entity
 @DiscriminatorValue("Facture Emise")
 public class Facture_Emise  extends Facture{
 
-	@ManyToOne
-	@JoinColumn(name="ID_client")
-	private Client client;
+	public Facture_Emise(String codeclient) {
+		super();
+		this.codeclient = codeclient;
+	}
 
 	public Facture_Emise() {
 		super();
@@ -25,16 +26,13 @@ public class Facture_Emise  extends Facture{
 		// TODO Auto-generated constructor stub
 	}
 
-	public Facture_Emise(Client client) {
-		super();
-		this.client = client;
+	private String codeclient;
+
+	public String getCodeclient() {
+		return codeclient;
 	}
 
-	public Client getClient() {
-		return client;
-	}
-
-	public void setClient(Client client) {
-		this.client = client;
+	public void setCodeclient(String codeclient) {
+		this.codeclient = codeclient;
 	}
 }

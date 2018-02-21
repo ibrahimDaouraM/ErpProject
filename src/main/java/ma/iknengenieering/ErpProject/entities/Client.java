@@ -1,5 +1,6 @@
 package ma.iknengenieering.ErpProject.entities;
 
+
 import java.io.Serializable;
 import java.util.Collection;
 
@@ -23,7 +24,7 @@ public class Client implements Serializable {
 	private String adresse;
 	private String email;
 	private Long tel;
-	@OneToMany(mappedBy="client")
+	/*@OneToMany(mappedBy="client")
 	private Collection<Facture_Emise> factures;
 	public Long getIdClient() {
 		return idClient;
@@ -33,7 +34,7 @@ public class Client implements Serializable {
 	}
 	public void setFactures(Collection<Facture_Emise> factures) {
 		this.factures = factures;
-	}
+	}*/
 	public void setIdClient(Long idClient) {
 		this.idClient = idClient;
 	}

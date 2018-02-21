@@ -1,5 +1,7 @@
 package ma.iknengenieering.ErpProject.entities;
 
+
+
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
@@ -15,7 +17,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.NotEmpty;
+
 @Entity
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name="Type_Facture",discriminatorType=DiscriminatorType.STRING)
@@ -24,13 +26,10 @@ public class Facture implements Serializable {
 	@Id
 	@GeneratedValue
 private Long idFacture;
-@NotEmpty
 private String NomSocieté;
 private String adresse;
 private Long tel;
-@NotEmpty
 private String reference;
-@NotEmpty
 private Date date;
 @OneToMany(mappedBy="facture")
 private Collection<Produit> produit;

@@ -1,5 +1,6 @@
 package ma.iknengenieering.ErpProject.entities;
 
+
 import java.io.Serializable;
 import java.util.Collection;
 
@@ -21,14 +22,14 @@ private Long idFournisseur;
 private String NomFournisseur;
 private String adresseFournis;
 private Long Tel;
-@OneToMany(mappedBy="fournisseur")
+/*@OneToMany(mappedBy="fournisseur")
 private Collection<Facture_Reçu> factures;
 public Collection<Facture_Reçu> getFactures() {
 	return factures;
 }
 public void setFactures(Collection<Facture_Reçu> factures) {
 	this.factures = factures;
-}
+}*/
 public Long getIdFournisseur() {
 	return idFournisseur;
 }
