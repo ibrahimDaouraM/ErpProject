@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Role implements Serializable {
@@ -14,6 +16,9 @@ public class Role implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long idRole;
 	private String roleName;
+	@ManyToOne
+	@JoinColumn(name="ID_Utilisateur")
+	private Utilisateur utilisateur;
 	public Long getIdRole() {
 		return idRole;
 	}

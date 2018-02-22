@@ -22,14 +22,15 @@ private Long idFournisseur;
 private String NomFournisseur;
 private String adresseFournis;
 private Long Tel;
-/*@OneToMany(mappedBy="fournisseur")
-private Collection<Facture_Reçu> factures;
-public Collection<Facture_Reçu> getFactures() {
+@OneToMany(mappedBy="fournisseur")
+private Collection<Facture> factures;
+
+public Collection<Facture> getFactures() {
 	return factures;
 }
-public void setFactures(Collection<Facture_Reçu> factures) {
+public void setFactures(Collection<Facture> factures) {
 	this.factures = factures;
-}*/
+}
 public Long getIdFournisseur() {
 	return idFournisseur;
 }

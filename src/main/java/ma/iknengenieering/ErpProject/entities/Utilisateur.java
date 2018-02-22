@@ -20,13 +20,21 @@ public class Utilisateur implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)	
 	@Column(name="ID_Utilisateur")
 	 private Long idUtilisateur;
-	private String NomUtilisateur;
+	 private String NomUtilisateur;
 	 private String status;
 	 private String login;
 	 private String password;
 	 private boolean actived;
-	 @OneToMany
-	  @JoinColumn(name="ID_Utilisateur")
+	 @OneToMany(mappedBy="utilisateur")
+	 private Collection<Facture> factures;
+
+	 public Collection<Facture> getFactures() {
+	 	return factures;
+	 }
+	 public void setFactures(Collection<Facture> factures) {
+	 	this.factures = factures;
+	 }
+	 @OneToMany(mappedBy="utilisateur")
 	 private Collection<Role> roles;
 	public Utilisateur() {
 		super();

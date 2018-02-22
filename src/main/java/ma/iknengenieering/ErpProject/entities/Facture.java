@@ -6,10 +6,12 @@ import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
@@ -17,28 +19,50 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
-@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name="Type_Facture",discriminatorType=DiscriminatorType.STRING)
 @Table(name="Factures")
 public class Facture implements Serializable {
 	@Id
 	@GeneratedValue
 private Long idFacture;
-private String NomSocieté;
-private String adresse;
-private Long tel;
+@Column(name="Reference_Facture")
 private String reference;
+@Column(name="Nom_societé")
+private String NomSociete;
+private String adresse;
+private Double tva;
+@Column(name="Telephonne")
+private Long tel;
 private Date date;
+@Column(name="Nature_de_facture")
+private String NaturedeFacture;
 @OneToMany(mappedBy="facture")
 private Collection<Produit> produit;
+@ManyToOne
+@JoinColumn(name="Reference_Fournisseur")
+private Fournisseur fournisseur;
+@ManyToOne
+@JoinColumn(name="Reference_Client")
+private Client client;
 
-
+@Transient
 @ManyToOne
 @JoinColumn(name="ID_Utilisateur")
 private Utilisateur utilisatuer;
 
+public Facture(String reference, String nomSociete, String adresse, Double tva, Long tel, Date date,
+		String naturedeFacture) {
+	super();
+	this.reference = reference;
+	this.NomSociete = nomSociete;
+	this.adresse = adresse;
+	this.tva = tva;
+	this.tel = tel;
+	this.date = date;
+	NaturedeFacture = naturedeFacture;
+}
 public Collection<Produit> getProduit() {
 	return produit;
 }
@@ -55,19 +79,11 @@ public Facture() {
 	super();
 	// TODO Auto-generated constructor stub
 }
-public Facture(String nomSocieté, String adresse, Long tel, String reference, Date date) {
-	super();
-	NomSocieté = nomSocieté;
-	this.adresse = adresse;
-	this.tel = tel;
-	this.reference = reference;
-	this.date = date;
+public String getNomSociete() {
+	return NomSociete;
 }
-public String getNomSocieté() {
-	return NomSocieté;
-}
-public void setNomSocieté(String nomSocieté) {
-	NomSocieté = nomSocieté;
+public void setNomSociete(String NomSociete) {
+	this.NomSociete = NomSociete;
 }
 public String getAdresse() {
 	return adresse;
@@ -93,6 +109,31 @@ public Long getTel() {
 }
 public void setTel(Long tel) {
 	this.tel = tel;
+}
+
+public Double getTva() {
+	return tva;
+}
+public void setTva(Double tva) {
+	this.tva = tva;
+}
+public String getNaturedeFacture() {
+	return NaturedeFacture;
+}
+public void setNaturedeFacture(String naturedeFacture) {
+	NaturedeFacture = naturedeFacture;
+}
+public Fournisseur getFournisseur() {
+	return fournisseur;
+}
+public void setFournisseur(Fournisseur fournisseur) {
+	this.fournisseur = fournisseur;
+}
+public Client getClient() {
+	return client;
+}
+public void setClient(Client client) {
+	this.client = client;
 }
 public Long getIdFacture() {
 	return idFacture;

@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -24,17 +25,22 @@ public class Client implements Serializable {
 	private String adresse;
 	private String email;
 	private Long tel;
-	/*@OneToMany(mappedBy="client")
-	private Collection<Facture_Emise> factures;
+	@OneToMany(mappedBy="client")
+	private Collection<Facture> factures;
+	public Collection<Facture> getFactures() {
+		return factures;
+	}
+
+	public void setFactures(Collection<Facture> factures) {
+		this.factures = factures;
+	}
+
 	public Long getIdClient() {
 		return idClient;
 	}
-	public Collection<Facture_Emise> getFactures() {
-		return factures;
-	}
-	public void setFactures(Collection<Facture_Emise> factures) {
-		this.factures = factures;
-	}*/
+	
+/*s*/
+
 	public void setIdClient(Long idClient) {
 		this.idClient = idClient;
 	}
