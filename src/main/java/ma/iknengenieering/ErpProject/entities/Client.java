@@ -20,11 +20,11 @@ public class Client implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="Code_Client")
-	private Long idClient;
+	private long idClient;
 	private String nomClient;
 	private String adresse;
 	private String email;
-	private Long tel;
+	private long tel;
 	@OneToMany(mappedBy="client")
 	private Collection<Facture> factures;
 	public Collection<Facture> getFactures() {
@@ -68,7 +68,7 @@ public class Client implements Serializable {
 	public void setTel(Long tel) {
 		this.tel = tel;
 	}
-	public Client(Long idClient, String nomClient, String adresse, String email, Long tel) {
+	public Client(long idClient, String nomClient, String adresse, String email, long tel) {
 		super();
 		this.idClient = idClient;
 		this.nomClient = nomClient;
