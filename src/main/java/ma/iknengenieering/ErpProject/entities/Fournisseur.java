@@ -1,6 +1,7 @@
 package ma.iknengenieering.ErpProject.entities;
 
 
+
 import java.io.Serializable;
 import java.util.Collection;
 
@@ -19,17 +20,21 @@ public class Fournisseur implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="Code_fournisseur")
 private Long idFournisseur;
-private String NomFournisseur;
+private String nomFournisseur;
 private String adresseFournis;
-private Long Tel;
+private Long tel;
 @OneToMany(mappedBy="fournisseur")
 private Collection<Facture> factures;
-
-public Collection<Facture> getFactures() {
-	return factures;
+public Fournisseur() {
+	super();
+	// TODO Auto-generated constructor stub
 }
-public void setFactures(Collection<Facture> factures) {
-	this.factures = factures;
+public Fournisseur(Long idFournisseur, String nomFournisseur, String adresseFournis, Long tel) {
+	super();
+	this.idFournisseur = idFournisseur;
+	this.nomFournisseur = nomFournisseur;
+	this.adresseFournis = adresseFournis;
+	this.tel = tel;
 }
 public Long getIdFournisseur() {
 	return idFournisseur;
@@ -38,10 +43,10 @@ public void setIdFournisseur(Long idFournisseur) {
 	this.idFournisseur = idFournisseur;
 }
 public String getNomFournisseur() {
-	return NomFournisseur;
+	return nomFournisseur;
 }
 public void setNomFournisseur(String nomFournisseur) {
-	NomFournisseur = nomFournisseur;
+	this.nomFournisseur = nomFournisseur;
 }
 public String getAdresseFournis() {
 	return adresseFournis;
@@ -50,21 +55,17 @@ public void setAdresseFournis(String adresseFournis) {
 	this.adresseFournis = adresseFournis;
 }
 public Long getTel() {
-	return Tel;
+	return tel;
 }
 public void setTel(Long tel) {
-	Tel = tel;
+	this.tel = tel;
 }
-public Fournisseur(Long idFournisseur, String nomFournisseur, String adresseFournis, Long tel) {
-	super();
-	this.idFournisseur = idFournisseur;
-	NomFournisseur = nomFournisseur;
-	this.adresseFournis = adresseFournis;
-	Tel = tel;
+public Collection<Facture> getFactures() {
+	return factures;
 }
-public Fournisseur() {
-	super();
-	// TODO Auto-generated constructor stub
+public void setFactures(Collection<Facture> factures) {
+	this.factures = factures;
 }
+
 
 }

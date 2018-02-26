@@ -1,6 +1,7 @@
 package ma.iknengenieering.ErpProject.entities;
 
 
+
 import java.io.Serializable;
 import java.util.Collection;
 
@@ -14,17 +15,18 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+
 @Entity
 @Table(name="Clients")
 public class Client implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="Code_Client")
-	private long idClient;
+	private Long idClient;
 	private String nomClient;
 	private String adresse;
 	private String email;
-	private long tel;
+	private Long tel;
 	@OneToMany(mappedBy="client")
 	private Collection<Facture> factures;
 	public Collection<Facture> getFactures() {
@@ -38,8 +40,6 @@ public class Client implements Serializable {
 	public Long getIdClient() {
 		return idClient;
 	}
-	
-/*s*/
 
 	public void setIdClient(Long idClient) {
 		this.idClient = idClient;
@@ -68,7 +68,8 @@ public class Client implements Serializable {
 	public void setTel(Long tel) {
 		this.tel = tel;
 	}
-	public Client(long idClient, String nomClient, String adresse, String email, long tel) {
+
+	public Client(Long idClient, String nomClient, String adresse, String email, Long tel) {
 		super();
 		this.idClient = idClient;
 		this.nomClient = nomClient;
@@ -76,6 +77,7 @@ public class Client implements Serializable {
 		this.email = email;
 		this.tel = tel;
 	}
+
 	public Client() {
 		super();
 		// TODO Auto-generated constructor stub

@@ -1,6 +1,7 @@
 package ma.iknengenieering.ErpProject.entities;
 
 
+
 import java.io.Serializable;
 import java.util.Collection;
 
@@ -9,7 +10,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -20,52 +20,38 @@ public class Utilisateur implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)	
 	@Column(name="ID_Utilisateur")
 	 private Long idUtilisateur;
-	 private String NomUtilisateur;
+	 private String nomUtilisateur;
 	 private String status;
 	 private String login;
 	 private String password;
 	 private boolean actived;
-	 @OneToMany(mappedBy="utilisateur")
-	 private Collection<Facture> factures;
-
-	 public Collection<Facture> getFactures() {
-	 	return factures;
-	 }
-	 public void setFactures(Collection<Facture> factures) {
-	 	this.factures = factures;
-	 }
 	 @OneToMany(mappedBy="utilisateur")
 	 private Collection<Role> roles;
 	public Utilisateur() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Utilisateur(Long idUtilisateur, String Nomutilisateur ,String status, String login, String password, boolean actived) {
+	public Utilisateur(Long idUtilisateur, String nomUtilisateur, String status, String login, String password,
+			boolean actived) {
 		super();
 		this.idUtilisateur = idUtilisateur;
-		this.NomUtilisateur = Nomutilisateur;
+		this.nomUtilisateur = nomUtilisateur;
 		this.status = status;
 		this.login = login;
 		this.password = password;
 		this.actived = actived;
-	}
-	public Collection<Role> getRoles() {
-		return roles;
-	}
-	public void setRoles(Collection<Role> roles) {
-		this.roles = roles;
-	}
-	public String getNomUtilisateur() {
-		return NomUtilisateur;
-	}
-	public void setNomUtilisateur(String nomUtilisateur) {
-		NomUtilisateur = nomUtilisateur;
 	}
 	public Long getIdUtilisateur() {
 		return idUtilisateur;
 	}
 	public void setIdUtilisateur(Long idUtilisateur) {
 		this.idUtilisateur = idUtilisateur;
+	}
+	public String getNomUtilisateur() {
+		return nomUtilisateur;
+	}
+	public void setNomUtilisateur(String nomUtilisateur) {
+		this.nomUtilisateur = nomUtilisateur;
 	}
 	public String getStatus() {
 		return status;
@@ -91,4 +77,13 @@ public class Utilisateur implements Serializable {
 	public void setActived(boolean actived) {
 		this.actived = actived;
 	}
+	
+	public Collection<Role> getRoles() {
+		return roles;
+	}
+	public void setRoles(Collection<Role> roles) {
+		this.roles = roles;
+	}
+	 
+	
 }

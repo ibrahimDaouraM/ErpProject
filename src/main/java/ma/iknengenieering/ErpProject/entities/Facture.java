@@ -2,6 +2,7 @@ package ma.iknengenieering.ErpProject.entities;
 
 
 
+
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
@@ -30,14 +31,14 @@ private Long idFacture;
 @Column(name="Reference_Facture")
 private String reference;
 @Column(name="Nom_societé")
-private String NomSociete;
+private String nomSociete;
 private String adresse;
 private Double tva;
 @Column(name="Telephonne")
 private Long tel;
 private Date date;
 @Column(name="Nature_de_facture")
-private String NaturedeFacture;
+private String naturedeFacture;
 @OneToMany(mappedBy="facture")
 private Collection<Produit> produit;
 @ManyToOne
@@ -47,98 +48,110 @@ private Fournisseur fournisseur;
 @JoinColumn(name="Reference_Client")
 private Client client;
 
-@Transient
-@ManyToOne
-@JoinColumn(name="ID_Utilisateur")
-private Utilisateur utilisatuer;
+public Facture() {
+	super();
+	// TODO Auto-generated constructor stub
+}
 
 public Facture(String reference, String nomSociete, String adresse, Double tva, Long tel, Date date,
 		String naturedeFacture) {
 	super();
 	this.reference = reference;
-	this.NomSociete = nomSociete;
+	this.nomSociete = nomSociete;
 	this.adresse = adresse;
 	this.tva = tva;
 	this.tel = tel;
 	this.date = date;
-	NaturedeFacture = naturedeFacture;
+	this.naturedeFacture = naturedeFacture;
 }
-public Collection<Produit> getProduit() {
-	return produit;
+
+public Long getIdFacture() {
+	return idFacture;
 }
-public void setProduit(Collection<Produit> produit) {
-	this.produit = produit;
-}
-public Utilisateur getUtilisatuer() {
-	return utilisatuer;
-}
-public void setUtilisatuer(Utilisateur utilisatuer) {
-	this.utilisatuer = utilisatuer;
-}
-public Facture() {
-	super();
-	// TODO Auto-generated constructor stub
-}
-public String getNomSociete() {
-	return NomSociete;
-}
-public void setNomSociete(String NomSociete) {
-	this.NomSociete = NomSociete;
-}
-public String getAdresse() {
-	return adresse;
-}
-public void setAdresse(String adresse) {
-	this.adresse = adresse;
+
+public void setIdFacture(Long idFacture) {
+	this.idFacture = idFacture;
 }
 
 public String getReference() {
 	return reference;
 }
+
 public void setReference(String reference) {
 	this.reference = reference;
 }
-public Date getDate() {
-	return date;
+
+public String getNomSociete() {
+	return nomSociete;
 }
-public void setDate(Date date) {
-	this.date = date;
+
+public void setNomSociete(String nomSociete) {
+	this.nomSociete = nomSociete;
 }
-public Long getTel() {
-	return tel;
+
+public String getAdresse() {
+	return adresse;
 }
-public void setTel(Long tel) {
-	this.tel = tel;
+
+public void setAdresse(String adresse) {
+	this.adresse = adresse;
 }
 
 public Double getTva() {
 	return tva;
 }
+
 public void setTva(Double tva) {
 	this.tva = tva;
 }
+
+public Long getTel() {
+	return tel;
+}
+
+public void setTel(Long tel) {
+	this.tel = tel;
+}
+
+public Date getDate() {
+	return date;
+}
+
+public void setDate(Date date) {
+	this.date = date;
+}
+
 public String getNaturedeFacture() {
-	return NaturedeFacture;
+	return naturedeFacture;
 }
+
 public void setNaturedeFacture(String naturedeFacture) {
-	NaturedeFacture = naturedeFacture;
+	this.naturedeFacture = naturedeFacture;
 }
+
+public Collection<Produit> getProduit() {
+	return produit;
+}
+
+public void setProduit(Collection<Produit> produit) {
+	this.produit = produit;
+}
+
 public Fournisseur getFournisseur() {
 	return fournisseur;
 }
+
 public void setFournisseur(Fournisseur fournisseur) {
 	this.fournisseur = fournisseur;
 }
+
 public Client getClient() {
 	return client;
 }
+
 public void setClient(Client client) {
 	this.client = client;
 }
-public Long getIdFacture() {
-	return idFacture;
-}
-public void setIdFacture(Long idFacture) {
-	this.idFacture = idFacture;
-}
+
+
 }

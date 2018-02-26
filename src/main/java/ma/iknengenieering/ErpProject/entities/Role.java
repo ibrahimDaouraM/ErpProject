@@ -1,6 +1,7 @@
 package ma.iknengenieering.ErpProject.entities;
 
 
+
 import java.io.Serializable;
 
 import javax.persistence.Entity;
@@ -19,6 +20,15 @@ public class Role implements Serializable {
 	@ManyToOne
 	@JoinColumn(name="ID_Utilisateur")
 	private Utilisateur utilisateur;
+	public Role() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public Role(Long idRole, String roleName) {
+		super();
+		this.idRole = idRole;
+		this.roleName = roleName;
+	}
 	public Long getIdRole() {
 		return idRole;
 	}
@@ -31,13 +41,11 @@ public class Role implements Serializable {
 	public void setRoleName(String roleName) {
 		this.roleName = roleName;
 	}
-	public Role(Long idRole, String roleName) {
-		super();
-		this.idRole = idRole;
-		this.roleName = roleName;
+	public Utilisateur getUtilisateur() {
+		return utilisateur;
 	}
-	public Role() {
-		super();
-		// TODO Auto-generated constructor stub
+	public void setUtilisateur(Utilisateur utilisateur) {
+		this.utilisateur = utilisateur;
 	}
+	
 }
