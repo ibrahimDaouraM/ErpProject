@@ -22,13 +22,6 @@ public class TestDHierbnate{
 		try {
 			ClassPathXmlApplicationContext app=
 					new ClassPathXmlApplicationContext( new String[] {"applicationContext.xml"});
-			IUtilisateurMetier clientMetier=(IUtilisateurMetier) app.getBean("metier");
-			
-			clientMetier.ajouterClient(new Client("bb","rabat","ibrs@gmqil.com",23884));
-			clientMetier.ajouterClient(new Client("ibrah","Casablanca","ibrs@gmqil.com",3994939));
-			clientMetier.ajouterClient(new Client("ibrahjim","Casablanca","ibrs@gmqil.com",3994939));
-			clientMetier.ajouterClient(new Client("ibrah","Casablanca","ibrs@gmqil.com",3994939));
-			
 			assertTrue(true);
 		} catch (Exception e) {
 			assertTrue(e.getMessage(),false);

@@ -22,10 +22,12 @@ public class Client implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="Code_Client")
 	private Long idClient;
+	private String codeClient;
 	private String nomClient;
+	private String prenomClient;
 	private String adresse;
 	private String email;
-	private int tel;
+	private String tel;
 	@OneToMany(mappedBy="client")
 	private Collection<Facture> factures;
 	public Collection<Facture> getFactures() {
@@ -43,12 +45,29 @@ public class Client implements Serializable {
 	public void setIdClient(Long idClient) {
 		this.idClient = idClient;
 	}
+	
+	public String getCodeClient() {
+		return codeClient;
+	}
+
+	public void setCodeClient(String codeClient) {
+		this.codeClient = codeClient;
+	}
+
 	public String getNomClient() {
 		return nomClient;
 	}
 	public void setNomClient(String nomClient) {
 		this.nomClient = nomClient;
 	}
+	public String getPrenomClient() {
+		return prenomClient;
+	}
+
+	public void setPrenomClient(String prenomClient) {
+		this.prenomClient = prenomClient;
+	}
+
 	public String getAdresse() {
 		return adresse;
 	}
@@ -62,17 +81,19 @@ public class Client implements Serializable {
 		this.email = email;
 	}
 	
-	public int getTel() {
+	public String getTel() {
 		return tel;
 	}
 
-	public void setTel(int tel) {
+	public void setTel(String tel) {
 		this.tel = tel;
 	}
 
-	public Client(String nomClient, String adresse, String email, int tel) {
+	public Client(String codeClient, String nomClient, String prenomClient, String adresse, String email, String tel) {
 		super();
+		this.codeClient = codeClient;
 		this.nomClient = nomClient;
+		this.prenomClient = prenomClient;
 		this.adresse = adresse;
 		this.email = email;
 		this.tel = tel;
