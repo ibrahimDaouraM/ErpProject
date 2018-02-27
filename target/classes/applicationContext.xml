@@ -30,6 +30,8 @@
 	</bean>
 	<tx:annotation-driven transaction-manager="transactionManager"/>
 	<context:annotation-config></context:annotation-config>
-	
-
+	<bean id="dao" class="ma.iknengenieering.ErpProject.dao.ModuleFactureDaoImpl"></bean>
+	<bean id="metier" class="ma.iknengenieering.ErpProject.metier.ModuleFactureMetierImpl">
+	<property name="dao" ref="dao"></property>
+   </bean>  
 </beans>

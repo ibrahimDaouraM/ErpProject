@@ -17,7 +17,6 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table(name="Clients")
 public class Client implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -26,7 +25,7 @@ public class Client implements Serializable {
 	private String nomClient;
 	private String adresse;
 	private String email;
-	private Long tel;
+	private int tel;
 	@OneToMany(mappedBy="client")
 	private Collection<Facture> factures;
 	public Collection<Facture> getFactures() {
@@ -62,16 +61,17 @@ public class Client implements Serializable {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public Long getTel() {
+	
+	public int getTel() {
 		return tel;
 	}
-	public void setTel(Long tel) {
+
+	public void setTel(int tel) {
 		this.tel = tel;
 	}
 
-	public Client(Long idClient, String nomClient, String adresse, String email, Long tel) {
+	public Client(String nomClient, String adresse, String email, int tel) {
 		super();
-		this.idClient = idClient;
 		this.nomClient = nomClient;
 		this.adresse = adresse;
 		this.email = email;
