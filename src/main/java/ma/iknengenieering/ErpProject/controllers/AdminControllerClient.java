@@ -12,7 +12,7 @@ import ma.iknengenieering.ErpProject.metier.IAdminMetier;
 
 @Controller
 @RequestMapping(value="/administrateur")
-public class AdminController {
+public class AdminControllerClient {
 	@Autowired
 private IAdminMetier metierAdmin;
 	@RequestMapping(value="/index")

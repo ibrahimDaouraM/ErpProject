@@ -126,7 +126,7 @@ private IModuleFactureDAO dao;
 	}
 
 	@Override
-	public List<Client> listFournisseur() {
+	public List<Fournisseur > listFournisseur() {
 		return dao.listFournisseur();
 	}
 

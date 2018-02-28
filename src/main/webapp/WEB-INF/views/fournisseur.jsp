@@ -9,33 +9,33 @@ integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6J
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </head>
-<h3 style="text-align: center;">Gestion des Clients</h3>
-<div id="formClient" class="cadre">
-<f:form modelAttribute="client" action="AjouterClient"
+<h3 style="text-align: center;">Gestion des Fournisseurs</h3>
+<div id="formFournisseur" class="cadre">
+<f:form modelAttribute="fournisseur" action="AjouterFournisseur"
  method="post" enctype="multupart/form-data">
 <table class="table">
 <tr class="table-active">
-<td>Code du Client</td>
-<td><f:input type="text" class="form-control" id="inputAddress2" placeholder="Code" path="codeClient"/></td>
-<td><f:errors path="codeClient" cssClass="errors"></f:errors></td>
+<td>Code du Fournisseur</td>
+<td><f:input type="text" class="form-control" id="inputAddress2" placeholder="Code" path="codeFournisseur"/></td>
+<td><f:errors path="codeFournisseur" cssClass="errors"></f:errors></td>
 </tr>
 <tr class="table-success">
-<td>Nom du client</td>
-<td><f:input type="text" class="form-control" id="inputAddress2" placeholder="Nom"  path="nomClient"/></td>
-<td><f:errors path="nomClient" cssClass="errors"></f:errors></td>
+<td>Nom du Fournisseur</td>
+<td><f:input type="text" class="form-control" id="inputAddress2" placeholder="Nom"  path="nomFournisseur"/></td>
+<td><f:errors path="nomFournisseur" cssClass="errors"></f:errors></td>
 </tr>
 <tr class="table-warning">
-<td>Prenom du client</td>
-<td><f:input type="text" class="form-control" id="inputAddress2" placeholder="Prenom"  path="prenomClient"/></td>
-<td><f:errors path="prenomClient" cssClass="errors"></f:errors></td>
+<td>Prenom du Fournisseur</td>
+<td><f:input type="text" class="form-control" id="inputAddress2" placeholder="Prenom"  path="prenomFournisseur"/></td>
+<td><f:errors path="prenomFournisseur" cssClass="errors"></f:errors></td>
 </tr>
 <tr class="table-danger">
-<td>Adresse du client</td>
-<td><f:input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor"   path="adresse"/></td>
-<td><f:errors path="adresse" cssClass="errors"></f:errors></td>
+<td>Adresse du Fournisseur</td>
+<td><f:input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor"   path="adresseFournis"/></td>
+<td><f:errors path="adresseFournis" cssClass="errors"></f:errors></td>
 </tr>
 <tr class="table-info">
-<td>Email du Client</td>
+<td>Email du Fournisseur</td>
 <td><f:input type="email" class="form-control" id="inputEmail4" placeholder="Email" path="email"/></td>
 <td><f:errors path="email" cssClass="errors"></f:errors></td>
 </tr>
@@ -46,7 +46,7 @@ integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6J
 <td><f:errors path="tel" cssClass="errors"></f:errors></td>
 </tr>
 <tr>
-<td ><button type="submit" class="btn btn-success">Ajouter le Client</button></td>
+<td ><button type="submit" class="btn btn-success">Ajouter le fournisseur</button></td>
 </tr>
 </table>
 </f:form>
@@ -54,22 +54,22 @@ integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6J
 <div id="tableClient" class="cadre">
 <table class="table table-bordered">
 <tr class="table-success">
-<th>ID</th><th><th>Code du Client </th><th>Nom du Client</th><th>Prenom du Client</th><th>Adresse du Client</th>
-<th> Email du Client </th><th>Numero Telephone </th><th>Suppression </th><th>Modification</th>
+<th>ID</th><th>Code du Fournisseur </th><th>Nom du Fournisseur</th><th>Prenom du Fournisseur</th><th>Adresse du Fournisseur</th>
+<th> Email du Fournisseur </th><th>Numero Telephone </th><th>Suppression </th><th>Modification</th>
 </tr>
 
 
-<c:forEach items="${clients}" var="clien">
+<c:forEach items="${fournisseurs}" var="f">
     <tr >
-    <td>${ clien.idClient }</td>
-    <td>${ clien.codeClient }</td>
-    <td>${ clien.nomClient }</td>
-    <td>${ clien.prenomClient }</td>
-    <td>${ clien.adresse }</td>
-    <td>${ clien.email }</td>
-    <td>${ clien.tel }</td>
-    <td><a href="suppClient?idClient=${clien.idClient }">Supprimé</a></td>
-     <td><a href="modifClient?idClient=${clien.idClient}">Modifier</a></td>
+    <td>${ f.idFournisseur }</td>
+    <td>${ f.codeFournisseur }</td>
+    <td>${ f.nomFournisseur }</td>
+    <td>${ f.prenomFournisseur }</td>
+    <td>${ f.adresseFournis }</td>
+    <td>${ f.email }</td>
+    <td>${ f.tel }</td>
+    <td><a href="suppFournisseur?idFournisseur=${f.idFournisseur}">Supprimé</a></td>
+     <td><a href="modifFournisseur?idFournisseur=${f.idFournisseur}">Modifier</a></td>
    </tr>
 </c:forEach>
 </table>

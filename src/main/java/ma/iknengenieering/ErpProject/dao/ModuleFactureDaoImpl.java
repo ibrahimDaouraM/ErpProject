@@ -118,8 +118,8 @@ public class ModuleFactureDaoImpl implements IModuleFactureDAO {
 		return  em.find(Fournisseur.class, idFournisseur);
 	}
 	@Override
-	public List<Client> listFournisseur() {
-		Query req=em.createQuery("select f from Facture f");
+	public List<Fournisseur > listFournisseur() {
+		Query req=em.createQuery("select f from Fournisseur f");
 		return req.getResultList();
 	}
 	@Override

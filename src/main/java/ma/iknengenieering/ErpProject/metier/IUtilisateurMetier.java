@@ -31,7 +31,7 @@ public interface IUtilisateurMetier {
 	   public void modifierFournisseur(Fournisseur f);
 	   public Fournisseur getFournisseur(String nomFournisseur);
 	   public Fournisseur getFournisseur(Long idFournisseur);
-	   public List<Client> listFournisseur();
+	   public List<Fournisseur > listFournisseur();
 	   
 	   /*----operation classique pour produit----------------*/
 	   public Long ajouterProduit(Produit  p);
