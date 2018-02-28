@@ -15,6 +15,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 
 @Entity
 public class Client implements Serializable {
@@ -22,11 +24,16 @@ public class Client implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="Code_Client")
 	private Long idClient;
+	@NotEmpty
 	private String codeClient;
+	@NotEmpty
 	private String nomClient;
+	@NotEmpty
 	private String prenomClient;
+	@NotEmpty
 	private String adresse;
 	private String email;
+	@NotEmpty
 	private String tel;
 	@OneToMany(mappedBy="client")
 	private Collection<Facture> factures;
