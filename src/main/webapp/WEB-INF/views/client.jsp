@@ -54,7 +54,7 @@ integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6J
 <div id="tableClient" class="cadre">
 <table class="table table-bordered">
 <tr class="table-success">
-<th>ID</th><th><th>Code du Client </th><th>Nom du Client</th><th>Prenom du Client</th><th>Adresse du Client</th>
+<th>ID</th><th>Code du Client </th><th>Nom du Client</th><th>Prenom du Client</th><th>Adresse du Client</th>
 <th> Email du Client </th><th>Numero Telephone </th><th>Suppression </th><th>Modification</th>
 </tr>
 

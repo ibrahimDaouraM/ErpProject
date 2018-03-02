@@ -32,7 +32,7 @@ public interface IModuleFactureDAO {
 	   public List<Fournisseur > listFournisseur();
 	   
 	   /*----operation classique pour produit----------------*/
-	   public Long ajouterProduit(Produit  p);
+	   public Long ajouterProduit(Produit p);
 	   public List<Produit> listproduits();
 	   public List<Produit> produitsParMotCle(String mc);
 	   public Produit getProduit(Long idP);

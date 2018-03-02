@@ -25,7 +25,7 @@ private IAdminMetier metierAdmin;
 	public String ajouterfournis(@Valid Fournisseur f,BindingResult bindingResult, Model model) {
 		
 		 if(bindingResult.hasErrors()) {
-			 model.addAttribute("fournisseur",metierAdmin.listFournisseur());
+			 model.addAttribute("fournisseurs",metierAdmin.listFournisseur());
 			 return "fournisseur";
 		 }
 		 metierAdmin.ajouterFournisseur(f);

@@ -22,6 +22,9 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
+import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.format.annotation.DateTimeFormat;
+
 @Entity
 @Table(name="Factures")
 public class Facture implements Serializable {
@@ -29,17 +32,22 @@ public class Facture implements Serializable {
 	@GeneratedValue
 private Long idFacture;
 @Column(name="Reference_Facture")
+@NotEmpty
 private String reference;
+@NotEmpty
 @Column(name="Nom_societé")
 private String nomSociete;
+@NotEmpty
 private String adresse;
 private Double tva;
 @Column(name="Telephonne")
-private Long tel;
+private String tel;
+@DateTimeFormat(pattern = "dd/MM/yyyy")
 private Date date;
+@NotEmpty
 @Column(name="Nature_de_facture")
 private String naturedeFacture;
-@OneToMany(mappedBy="facture")
+@Transient
 private Collection<Produit> produit;
 @ManyToOne
 @JoinColumn(name="Reference_Fournisseur")
@@ -53,8 +61,10 @@ public Facture() {
 	// TODO Auto-generated constructor stub
 }
 
-public Facture(String reference, String nomSociete, String adresse, Double tva, Long tel, Date date,
-		String naturedeFacture) {
+
+
+public Facture(String reference, String nomSociete, String adresse, Double tva, String tel, Date date,
+		String naturedeFacture, Collection<Produit> produit) {
 	super();
 	this.reference = reference;
 	this.nomSociete = nomSociete;
@@ -63,7 +73,10 @@ public Facture(String reference, String nomSociete, String adresse, Double tva, 
 	this.tel = tel;
 	this.date = date;
 	this.naturedeFacture = naturedeFacture;
+	this.produit = produit;
 }
+
+
 
 public Long getIdFacture() {
 	return idFacture;
@@ -105,11 +118,11 @@ public void setTva(Double tva) {
 	this.tva = tva;
 }
 
-public Long getTel() {
+public String getTel() {
 	return tel;
 }
 
-public void setTel(Long tel) {
+public void setTel(String tel) {
 	this.tel = tel;
 }
 

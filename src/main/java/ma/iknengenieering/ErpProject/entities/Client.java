@@ -21,8 +21,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 @Entity
 public class Client implements Serializable {
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="Code_Client")
+	@GeneratedValue
 	private Long idClient;
 	@NotEmpty
 	private String codeClient;

@@ -16,23 +16,21 @@ import javax.persistence.Table;
 import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
-@Table(name="Fournisseurs")
 public class Fournisseur implements Serializable {
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="Code_fournisseur")
-private Long idFournisseur;
+	@GeneratedValue
+    private Long idFournisseur;
 	@NotEmpty
-private String codeFournisseur;
+    private String codeFournisseur;
 	@NotEmpty
-private String nomFournisseur;
+    private String nomFournisseur;
 	@NotEmpty
-private String prenomFournisseur;
+    private String prenomFournisseur;
 	@NotEmpty
-private String adresseFournis;
-private String email;
-@NotEmpty
-private String tel;
+     private String adresseFournis;
+     private String email;
+     @NotEmpty
+     private String tel;
 
 
 @OneToMany(mappedBy="fournisseur")
@@ -53,13 +51,7 @@ public Fournisseur(String codeFournisseur, String nomFournisseur, String prenomF
 	this.tel = tel;
 }
 
-public String getCodeFournisseur() {
-	return codeFournisseur;
-}
 
-public void setCodeFournisseur(String codeFournisseur) {
-	this.codeFournisseur = codeFournisseur;
-}
 
 public String getPrenomFournisseur() {
 	return prenomFournisseur;
@@ -89,6 +81,14 @@ public Long getIdFournisseur() {
 }
 public void setIdFournisseur(Long idFournisseur) {
 	this.idFournisseur = idFournisseur;
+}
+
+public String getCodeFournisseur() {
+	return codeFournisseur;
+}
+
+public void setCodeFournisseur(String codeFournisseur) {
+	this.codeFournisseur = codeFournisseur;
 }
 public String getNomFournisseur() {
 	return nomFournisseur;

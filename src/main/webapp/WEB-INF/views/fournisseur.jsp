@@ -59,17 +59,17 @@ integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6J
 </tr>
 
 
-<c:forEach items="${fournisseurs}" var="f">
+<c:forEach items="${fournisseurs}" var="four">
     <tr >
-    <td>${ f.idFournisseur }</td>
-    <td>${ f.codeFournisseur }</td>
-    <td>${ f.nomFournisseur }</td>
-    <td>${ f.prenomFournisseur }</td>
-    <td>${ f.adresseFournis }</td>
-    <td>${ f.email }</td>
-    <td>${ f.tel }</td>
-    <td><a href="suppFournisseur?idFournisseur=${f.idFournisseur}">Supprimé</a></td>
-     <td><a href="modifFournisseur?idFournisseur=${f.idFournisseur}">Modifier</a></td>
+    <td>${ four.idFournisseur }</td>
+    <td>${ four.codeFournisseur }</td>
+    <td>${ four.nomFournisseur }</td>
+    <td>${ four.prenomFournisseur }</td>
+    <td>${ four.adresseFournis }</td>
+    <td>${ four.email }</td>
+    <td>${ four.tel }</td>
+    <td><a href="suppFournisseur?idFournisseur=${four.idFournisseur}">Supprimé</a></td>
+     <td><a href="modifFournisseur?idFournisseur=${four.idFournisseur}">Modifier</a></td>
    </tr>
 </c:forEach>
 </table>

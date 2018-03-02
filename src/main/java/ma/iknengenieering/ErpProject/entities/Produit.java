@@ -11,19 +11,22 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
+
+import org.hibernate.validator.constraints.NotEmpty;
 @Entity
-@Table(name="produits")
 public class Produit implements Serializable {
 	@Id
 	@GeneratedValue
 	  private Long idProduit;
+	@NotEmpty
 	  private String designation;
+	@NotEmpty
 	  private String description;
+	
 	  private Double prix;
-	  private Integer quantite;
-	  @ManyToOne
-	  @JoinColumn(name="idfacture")
-	  private Facture facture;
+
+	  private  Integer  quantite;
 	public Produit() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -64,12 +67,6 @@ public class Produit implements Serializable {
 	}
 	public void setQuantite(Integer quantite) {
 		this.quantite = quantite;
-	}
-	public Facture getFacture() {
-		return facture;
-	}
-	public void setFacture(Facture facture) {
-		this.facture = facture;
 	}
 	  
 }

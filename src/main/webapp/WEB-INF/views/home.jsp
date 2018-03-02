@@ -31,7 +31,10 @@ integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6J
         <a class="nav-link" href="http://localhost:8080/ErpProject/administrateur/index1">Gestion des Fournisseurs</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Gestion des Factures</a>
+        <a class="nav-link" href="http://localhost:8080/ErpProject/administrateur/index2">Gestion des Produits</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="http://localhost:8080/ErpProject/administrateur/index3">Gestion des Factures</a>
       </li>
       <li class="nav-item">
         <a class="nav-link disabled" href="#">Disabled</a>
